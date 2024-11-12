@@ -23,7 +23,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/project_employee_db
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: MKHJK431
+      SPRING_DATASOURCE_PASSWORD: password
     ports:
       - "8080:8080"
     depends_on:
