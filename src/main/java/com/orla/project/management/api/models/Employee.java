@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,10 +20,8 @@ import jakarta.validation.constraints.Positive;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "funcionarios")
@@ -55,6 +52,7 @@ public class Employee implements Serializable {
   @Column(nullable = false)
   private BigDecimal salario;
 
+  @JsonIgnore
   @ManyToMany(mappedBy = "employees", fetch = FetchType.LAZY)
   @JsonBackReference
   private Set<Project> projects;
