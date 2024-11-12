@@ -161,3 +161,11 @@ GET /api/v1/projetos
 ```
 docs -> openapi.yaml
 ```
+# Para gerar um report de test coverage do código pelo Gradle
+```
+./gradlew jacocoTestReport
+```
+### E vai achá-lo no path:
+```
+build -> reports -> jacoco -> test -> html -> index.html
+```
