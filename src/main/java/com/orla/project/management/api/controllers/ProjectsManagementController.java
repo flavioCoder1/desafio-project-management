@@ -21,7 +21,7 @@ import java.util.List;
 
 @Validated
 @RestController
-@RequestMapping("/api/v1/projects")
+@RequestMapping("/api/v1/projetos")
 public class ProjectsManagementController {
   private final ProjectsManagementService projectService;
   private static final Logger logger = LoggerFactory.getLogger(ProjectsManagementController.class);
