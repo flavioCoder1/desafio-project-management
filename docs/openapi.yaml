@@ -1,20 +1,20 @@
 openapi: 3.0.1
 info:
-  title: Project Management API
-  description: API for managing projects and their employees.
+  title: API de Gerenciamento de Projetos
+  description: API para criar projetos e gerenciar funcionários
   version: 1.0.0
 paths:
-  /api/v1/projects:
+  /api/v1/projetos:
     post:
-      summary: Create a new project
-      operationId: createProject
+      summary: Crie um novo projeto
+      operationId: criarProject
       tags:
         - Projects
       parameters:
         - name: Authorization
           in: header
           required: true
-          description: Bearer token for authorization
+          description: Bearer token utilizado na autenticação
           schema:
             type: string
       requestBody:
@@ -22,16 +22,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProjectDto'
+              $ref: '#/components/schemas/ProjetoDto'
       responses:
         '201':
-          description: Project successfully created
+          description: Projeto foi criado com sucesso!
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
+                $ref: '#/components/schemas/Projeto'
         '400':
-          description: Bad request (validation errors or missing parameters)
+          description: Bad request (erros de input ou parâmetros faltando)
         '401':
           description: Unauthorized (invalid or missing token)
     get:
@@ -43,23 +43,23 @@ paths:
         - name: Authorization
           in: header
           required: true
-          description: Bearer token for authorization
+          description: Bearer token utilizado na autenticação
           schema:
             type: string
       responses:
         '200':
-          description: A list of all projects
+          description: Listagem de todos os projetos
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Project'
+                  $ref: '#/components/schemas/Projeto'
         '401':
-          description: Unauthorized (invalid or missing token)
+          description: Unauthorized (token inválido ou inexistente)
 components:
   schemas:
-    ProjectDto:
+    ProjetoDto:
       type: object
       required:
         - nome
@@ -67,14 +67,14 @@ components:
       properties:
         nome:
           type: string
-          description: The name of the project
+          description: O nome de um projeto
           example: "CCXP24"
         funcionarios:
           type: array
           items:
             $ref: '#/components/schemas/Employee'
-          description: A list of employees in the project
-    Project:
+          description: A lista de funcionários de um projeto
+    Projeto:
       type: object
       required:
         - id
@@ -84,22 +84,22 @@ components:
         id:
           type: string
           format: uuid
-          description: Unique identifier for the project
+          description: Identificador único para o projeto
           example: "f047714f-3f23-4223-b709-de399174a634"
         nome:
           type: string
-          description: The name of the project
+          description: O nome do projeto
           example: "CCXP24"
         data_criacao:
           type: string
           format: date-time
-          description: The creation date of the project
+          description: A data de criação do projeto
           example: "2024-11-11T23:07:32.172"
         funcionarios:
           type: array
           items:
             $ref: '#/components/schemas/Employee'
-          description: A list of employees associated with the project
+          description: A lista de funcionários associados com o projeto
     Employee:
       type: object
       required:
@@ -116,19 +116,19 @@ components:
           example: "0f4db84a-0eaf-4abf-b17c-31ba3bf90f25"
         nome:
           type: string
-          description: Name of the employee
+          description: Nome do funcionário
           example: "Caio"
         cpf:
           type: string
-          description: CPF (Brazilian tax ID) of the employee
+          description: CPF do funcionário
           example: "183.830.223-94"
         email:
           type: string
           format: email
-          description: Email address of the employee
+          description: Endereço de e-mail do funcionário
           example: "caio2@example.com"
         salario:
           type: number
           format: float
-          description: The salary of the employee
+          description: O salário de um funcionário
           example: 19500.00

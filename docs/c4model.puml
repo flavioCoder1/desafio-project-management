@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "API de Gerenciamento de Projetos" as API
+database "Banco de Dados" as DB
+
+User -> API: POST /api/v1/projetos
+API -> DB: Cria projeto e associa funcionários
+API <- DB: Confirmação de criação
+User <- API: Retorna status 201 Created
+
+User -> API: GET /api/v1/projetos
+API -> DB: Recupera lista de projetos e funcionários
+API <- DB: Dados dos projetos
+User <- API: Retorna lista de projetos e funcionários
+@enduml
