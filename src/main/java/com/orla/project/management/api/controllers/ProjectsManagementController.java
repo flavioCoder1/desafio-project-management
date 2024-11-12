@@ -39,4 +39,13 @@ public class ProjectsManagementController {
     logger.info("Projeto com nome {} foi salvo com sucesso!", project.nome());
     return ResponseEntity.status(HttpStatus.CREATED).body(savedProject);
   }
+
+  @GetMapping
+  public ResponseEntity<List<Project>> getAllProjects(
+      @RequestHeader("Authorization") @NotBlank String bearerToken
+  ) {
+    List<Project> projects = projectService.getAllProjects();
+    logger.info("Projetos listados com sucesso!");
+    return ResponseEntity.ok(projects);
+  }
 }

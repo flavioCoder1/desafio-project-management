@@ -1,5 +1,6 @@
 package com.orla.project.management.api.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,6 +18,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
@@ -53,8 +55,8 @@ public class Employee implements Serializable {
   @Column(nullable = false)
   private BigDecimal salario;
 
-  @JsonIgnore
   @ManyToMany(mappedBy = "employees", fetch = FetchType.LAZY)
+  @JsonBackReference
   private Set<Project> projects;
 
   public Employee(){}
@@ -120,13 +122,6 @@ public class Employee implements Serializable {
 
   public void setProjects(Set<Project> projects) {
     this.projects = projects;
-  }
-
-  @JsonProperty("projetos")
-  public List<String> getProjectNames() {
-    return projects == null ? null : projects.stream()
-        .map(Project::getNome)
-        .collect(Collectors.toList());
   }
 }
 

@@ -3,6 +3,7 @@ package com.orla.project.management.api.models;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.CascadeType;
@@ -43,6 +44,7 @@ public class Project implements Serializable {
   @JoinTable(name = "projetos_funcionarios",
       joinColumns = @JoinColumn(name = "project_id"),
       inverseJoinColumns = @JoinColumn(name = "employee_id"))
+  @JsonManagedReference
   private Set<Employee> employees = new HashSet<>();
 
   public Project(){}

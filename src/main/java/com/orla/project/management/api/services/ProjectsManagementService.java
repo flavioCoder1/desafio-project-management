@@ -30,4 +30,9 @@ public class ProjectsManagementService {
     logger.info("Projeto {} sendo enviado ao banco...", project.getNome());
     return projectsManagementRepository.save(project);
   }
+
+  public List<Project> getAllProjects() {
+    logger.info("Procurando projetos no banco...");
+    return projectsManagementRepository.findAll();
+  }
 }
