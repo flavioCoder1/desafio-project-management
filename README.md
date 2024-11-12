@@ -102,20 +102,14 @@ GET /api/v1/projetos
 				"nome": "Caio",
 				"cpf": "139.881.977-85",
 				"email": "caio2@example.com",
-				"salario": 19500.00,
-				"projetos": [
-					"Orla"
-				]
+				"salario": 19500.00
 			},
 			{
 				"id": "73cc3641-04d7-4876-9513-22afa15c476c",
 				"nome": "Flavio",
 				"cpf": "139.881.977-85",
 				"email": "flavio12@example.com",
-				"salario": 14000.00,
-				"projetos": [
-					"Orla"
-				]
+				"salario": 14000.00
 			}
 		]
 	},
@@ -129,20 +123,14 @@ GET /api/v1/projetos
 				"nome": "Caio",
 				"cpf": "139.881.977-85",
 				"email": "caio2@example.com",
-				"salario": 19500.00,
-				"projetos": [
-					"CCXP24"
-				]
+				"salario": 19500.00
 			},
 			{
 				"id": "d805b97e-c46d-4e99-b5b1-5495c291a006",
 				"nome": "Flavio",
 				"cpf": "139.881.977-85",
 				"email": "flavio12@example.com",
-				"salario": 14000.00,
-				"projetos": [
-					"CCXP24"
-				]
+				"salario": 14000.00
 			}
 		]
 	}
