@@ -65,10 +65,10 @@ POST /api/v1/projetos
 - Response Body: JSON com as informações do projeto e dos funcionários associados.
 ```
 {
-	"id": "UUID",
-	"nome": "nomeDoProjeto",
-	"data_criacao": "data",
-	"funcionarios": [
+  "id": "UUID",
+  "nome": "nomeDoProjeto",
+  "data_criacao": "data",
+  "funcionarios": [
       {
         "nome": "nomeDoFuncionario",
         "cpf": "XXX.XXX.XXX-XX",
